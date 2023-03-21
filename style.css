@@ -1,0 +1,581 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: 0;
+  box-sizing: border-box;
+  transition: all ease 0.2s;
+  list-style-type: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+  line-height: 0;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* remove all button styles */
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+:root {
+  --purple: #5e19b8;
+  --light-purple: hsla(258, 100%, 69%, 1);
+  --light-blue: hsla(160, 93%, 71%, 1);
+  --blue: hsla(184, 100%, 35%, 1);
+  --gray: hsla(198, 28%, 93%, 1);
+  --white: hsla(0, 0%, 100%, 1);
+}
+
+body {
+  line-height: 1.3;
+  text-rendering: optimizeSpeed;
+  font-family: 'Roboto', sans-serif;
+  background-color: #01051f;
+}
+
+/* headings and buttons */
+
+h1 {
+  font: 900 3.5rem/3.5rem 'Roboto', sans-serif;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+h2 {
+  font: 900 2rem/2.25rem 'Roboto', sans-serif;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+h3 {
+  font: 900 1.5rem/1.75rem 'Roboto', sans-serif;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+p {
+  font: 400 1rem/1.625rem 'Roboto', sans-serif;
+  color: var(--light-blue);
+}
+
+h4,
+.release {
+  font: 700 1rem/1.625rem 'Roboto', sans-serif;
+  color: var(--light-blue);
+  text-transform: uppercase;
+}
+
+.btn {
+  font: 700 1rem/1.625rem 'Roboto', sans-serif;
+  padding: 1rem 1.625rem;
+  background-color: var(--purple);
+  text-transform: uppercase;
+  color: white;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all ease 0.2s;
+  text-shadow: 4px 4px #000;
+}
+
+.btn:hover {
+  background-color: var(--light-purple);
+  transition: all ease 0.5s;
+}
+
+.btn-secondary {
+  background-color: var(--gray);
+  color: var(--blue);
+  transition: all ease 0.2s;
+}
+
+.btn-secondary:hover {
+  background-color: var(--blue);
+  color: var(--white);
+  transition: all ease 0.5s;
+}
+
+/* general css */
+
+.container,
+.container-grid {
+  max-width: 68.75rem;
+  margin: 0 auto;
+  padding-inline: 1.25rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 3.375rem;
+  padding-bottom: 5.125rem;
+}
+
+picture img,
+.hero-heading img,
+.hero-image img,
+.grid-1 img,
+.grid-2 img,
+.grid-3 img {
+  max-width: 100%;
+  border-radius: 1.25rem;
+  object-fit: cover;
+}
+
+main {
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 1.875rem;
+  grid-template-areas:
+    'hero-heading hero-heading hero-image hero-image'
+    'grid-1 grid-2 grid-2 grid-3';
+  padding-bottom: 10.5rem;
+  position: relative;
+  overflow: visible;
+}
+
+.hero-grid::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  left: -16.5625rem;
+  bottom: 10.5rem;
+  width: 15.9375rem;
+  height: 15rem;
+  opacity: 70%;
+  border-radius: 1.25rem;
+}
+
+.hero-grid::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  right: -16.5625rem;
+  width: 15.9375rem;
+  height: 15rem;
+  opacity: 70%;
+  border-radius: 1.25rem;
+}
+
+
+.hero-heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  grid-area: hero-heading;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(assets/desktop/headingkeyboard.jpg);
+  border-radius: 1.25rem;
+  padding: 1rem;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2.5rem;
+  justify-content: center;
+}
+
+.hero-heading h1 {
+  padding-bottom: 1.5rem;
+}
+
+.hero-heading p {
+  padding-bottom: 2.5rem;
+  max-width: 31.25rem;
+}
+
+.hero-image {
+  display: flex;
+  grid-area: hero-image;
+}
+
+.grid-1 {
+  display: flex;
+  grid-area: grid-1;
+  border-radius: 1.25rem;
+  background-color: var(--purple);
+}
+
+.grid-1 img {
+  mix-blend-mode: multiply;
+  opacity: 75%;
+}
+
+.grid-2 {
+  display: flex;
+  padding-right: 3.75rem;
+  grid-area: grid-2;
+}
+
+.grid-3 {
+  display: flex;
+  flex-direction: column;
+  grid-area: grid-3;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.features {
+  display: flex;
+  gap: 3.2rem;
+  margin-bottom: 8rem;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1rem;
+  margin-bottom: 2.5rem;
+  background-color: var(--purple);
+}
+
+
+.icon img {
+  display: block;
+  padding: 1rem;
+}
+
+.feature-item h3 {
+  padding-bottom: 1.5rem;
+}
+
+.feature-item p {
+  font: 400 0.9375rem/1.75rem 'Roboto', sans-serif;
+  color: var(--light-blue);
+}
+
+/* NEW HERO IMAGE PROJECT START*/
+
+.deal-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("assets/desktop/therig.jpg");
+  height: 20rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  margin-bottom: 5rem;
+}
+
+.deal-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow: 4px 4px #000;
+}
+
+.deal-flex {
+  padding: 3rem;
+}
+
+/* NEW HERO IMAGE PROJECT END */
+
+.nav_links {
+  list-style: none;
+  font-size: 1.2rem;
+}
+
+.nav_links li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.nav_links li a {
+  transition: all 0.3s ease 0s;
+  color: var(--light-blue);
+}
+
+.nav_links li a:hover {
+  color: var(--light-purple);
+}
+
+footer {
+  text-align: center;
+  padding-bottom: 2.5rem;
+}
+
+
+@media (max-width: 50rem) {
+
+  .hero-grid::after,
+  .hero-grid::before {
+    display: none;
+  }
+
+  h1 {
+    font: 900 3rem/3rem 'Roboto', sans-serif;
+  }
+
+  p {
+    font: 400 0.9375rem/1.625rem 'Roboto', sans-serif;
+    color: var(--light-blue);
+  }
+
+  header {
+    padding-top: 2.5rem;
+    padding-bottom: 3.875rem;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas:
+      'hero-heading hero-heading  hero-image hero-image'
+      'grid-1 grid-2 grid-2 grid-2'
+      'grid-3 grid-3 grid-3 grid-3';
+    padding-bottom: 6.25rem;
+    position: initial;
+    overflow: initial;
+  }
+
+  .grid-2 {
+    display: flex;
+    padding-right: initial;
+    grid-area: grid-2;
+  }
+
+  .grid-3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-image {
+    transform: translateX(2.5rem);
+  }
+
+  .features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.75rem;
+    margin-bottom: 8rem;
+  }
+}
+
+@media (max-width: 33.75rem) {
+
+  .container-grid {
+    max-width: 68.75rem;
+    margin: 0 auto;
+    padding-inline: 0rem;
+  }
+
+  .hero-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+      'hero-heading hero-heading hero-heading'
+      'hero-image hero-image hero-image'
+      'grid-1 grid-2 grid-2'
+      'grid-3 grid-3 grid-3';
+    padding-bottom: 6.25rem;
+  }
+
+  .btn {
+    font: 700 0.9375rem/1.5rem 'Roboto', sans-serif;
+    padding: 0.75rem 1.375rem;
+  }
+
+  .flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2.5rem;
+    justify-content: center;
+  }
+
+  .hero-heading {
+    margin-inline: 1.25rem;
+    text-align: center;
+    padding-bottom: 3.875rem;
+  }
+
+  .hero-image {
+    transform: translateX(1.25rem);
+  }
+
+  .grid-1 {
+    transform: translateX(-1.25rem);
+  }
+
+  .grid-2 {
+    transform: translateX(-1.25rem);
+  }
+
+  .grid-3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 4.375rem;
+    margin-inline: 2.5rem;
+  }
+
+  .features {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 3.75rem;
+    margin-inline: 1.25rem;
+    margin-bottom: 5.625rem;
+  }
+
+  .feature-item {
+    align-items: center;
+  }
+}
+
+@media (max-width: 20rem) {
+  h1 {
+    font: 900 2.25rem/2.25rem 'Roboto', sans-serif;
+  }
+}
+
+.grid-1,
+.hero-image,
+.hero-grid::before {
+  -webkit-animation: slideInTop ease-out 1s;
+  transition: all ease-out 1.5s;
+  animation-duration: 1.5s;
+  animation-delay: 600ms;
+}
+
+.grid-2,
+.hero-grid::after {
+  -webkit-animation: slideInBottom ease-out 1s;
+  transition: all ease-out 1.5s;
+  animation-duration: 1.5s;
+  animation-delay: 600ms;
+}
+
+.hero-heading,
+.grid-3 {
+  -webkit-animation: slideInLeft ease-out 2s;
+  transition: all ease-out 2s;
+  animation-duration: 1s;
+  animation-delay: 800ms;
+}
+
+
+@keyframes slideInTop {
+  0% {
+    transform: translateY(-12.5rem);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInBottom {
+  0% {
+    transform: translateY(12.5rem);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(12.5rem);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+
+
+@-webkit-keyframes appear {
+  0% {
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
